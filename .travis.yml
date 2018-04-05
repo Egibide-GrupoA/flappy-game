@@ -9,3 +9,6 @@ install:
 - ./install.sh
 script:
 - ./build.sh
+env:
+  global:
+  - UNITYCI_PROJECT_NAME="flappy-game"
