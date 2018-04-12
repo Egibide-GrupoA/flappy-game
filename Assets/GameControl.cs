@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
 
 public class GameControl : MonoBehaviour {
 
@@ -53,5 +56,29 @@ public class GameControl : MonoBehaviour {
         FinJuego.SetActive(true);
         //Set the game to be over.
         gameOver = true;
+
+        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://flappy-game-3699b.firebaseio.com/");
+
+        // Get the root reference location of the database.
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        auth.SignInAnonymouslyAsync().ContinueWith(task => {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            Firebase.Auth.FirebaseUser newUser = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})",
+                newUser.DisplayName, newUser.UserId);
+        });
+        
+        reference.Child("aaa").Child("test").SetValueAsync(score);
     }
 }
