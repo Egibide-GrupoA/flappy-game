@@ -29,6 +29,10 @@ public class GameControl : MonoBehaviour {
 
     public GameObject canvasPunt;
 
+
+    public GameObject[] Scenas;
+    static int indexSceneActual = 0;
+
     void Awake()
     {
         //If we don't currently have a game control...
@@ -53,6 +57,9 @@ public class GameControl : MonoBehaviour {
         }
         if (! gameOver && menuActivo)
         {
+            Scenas[0].SetActive(false);
+            Scenas[indexSceneActual].SetActive(true);
+
             MostrarMenu(false, false);
             input_name.text = playerName;
 
@@ -145,6 +152,15 @@ public class GameControl : MonoBehaviour {
     public void Btn_escena()
     {
         {
+
+            int newScena = indexSceneActual + 1;
+            if (newScena > Scenas.Length-1)
+            {
+                newScena = 0;
+            }
+            Scenas[indexSceneActual].SetActive(false);
+            Scenas[newScena].SetActive(true);
+            indexSceneActual = newScena;
         }
     }
     public void Btn_puntuaciones()
