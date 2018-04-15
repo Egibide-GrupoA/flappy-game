@@ -1,42 +1,37 @@
 {
-  "project_info": {
-    "project_number": "105653326978",
-    "firebase_url": "https://flappy-game-3699b.firebaseio.com",
-    "project_id": "flappy-game-3699b",
-    "storage_bucket": "flappy-game-3699b.appspot.com"
-  },
   "client": [
     {
+      "services": {
+        "appinvite_service": {
+          "status": 0
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "105653326978-ptql5bc5he8opdpsgo87st74k92rbf93.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyByuOUEN-0D-uDfTpd9fF76S86LDU2v4BI"
+        }
+      ], 
       "client_info": {
-        "mobilesdk_app_id": "1:105653326978:android:4eec33afec4c0aba",
+        "mobilesdk_app_id": "1:105653326978:ios:4eec33afec4c0aba", 
         "android_client_info": {
           "package_name": "com.grupoa.flappy"
         }
-      },
-      "oauth_client": [
-        {
-          "client_id": "105653326978-7m4rird3kk6a60093dd613ouv4ej9sn5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBoP5LJeedGV8AJnoZd30J4i_2Jy4cgZsA"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
       }
     }
-  ],
-  "configuration_version": "1"
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "flappy-game-3699b.appspot.com", 
+    "project_id": "flappy-game-3699b", 
+    "firebase_url": "https://flappy-game-3699b.firebaseio.com", 
+    "project_number": "105653326978"
+  }
 }
