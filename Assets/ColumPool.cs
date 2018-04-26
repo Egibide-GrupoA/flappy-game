@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColumPool : MonoBehaviour {
     public GameObject columnPrefab;                                 //The column game object.
+	public GameObject columnPrefab2;                                 //The column game object.
     public int columnPoolSize = 5;                                  //How many columns to keep on standby.
     public float spawnRate = 3f;                                    //How quickly columns spawn.
     //public float columnMin = -1f;                                   //Minimum y value of the column position.
@@ -32,7 +33,20 @@ public class ColumPool : MonoBehaviour {
             columns[i] = (GameObject)Instantiate(columnPrefab, objectPoolPosition, Quaternion.identity);
         }
     }
+	//en espera de arreglas los prefabs
+	/*public void cambiarAMeteoritos (){
 
+		timeSinceLastSpawned = 0f;
+
+		//Initialize the columns collection.
+		columns = new GameObject[columnPoolSize];
+		//Loop through the collection... 
+		for (int i = 0; i < columnPoolSize; i++)
+		{
+			//...and create the individual columns.
+			columns[i] = (GameObject)Instantiate(columnPrefab2, objectPoolPosition, Quaternion.identity);
+		}
+	}*/
 
     //This spawns columns as long as the game is not over.
     void Update()

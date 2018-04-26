@@ -559,6 +559,7 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform:
     Android: 1
     Standalone: 1
+    WebGL: 1
     iOS: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1

@@ -13,10 +13,16 @@ public class GameControl : MonoBehaviour {
     public Text Puntuacion;                      //A reference to the UI text component that displays the player's score.
     public GameObject FinJuego;             //A reference to the object that displays the text which appears when the player dies.
 
+    
+
+	private const int limite1=5;             //límites para cambio de escena.
+    private const int limite2 = 10;             //límites para cambio de escena.
+
     private int score = 0;                      //The player's score.
     public bool gameOver = true;               //Is the game over?
     public float scrollSpeed = -1.5f;
 
+    public GameObject scoreSonido;
     public GameObject btn_start;
     public GameObject btn_escenario;
     public GameObject btn_puntuacion;
@@ -29,7 +35,7 @@ public class GameControl : MonoBehaviour {
 
     public GameObject canvasPunt;
 
-
+    private AudioSource salto;
     public GameObject[] Scenas;
     static int indexSceneActual = 0;
 
@@ -53,6 +59,7 @@ public class GameControl : MonoBehaviour {
             //...reload the current scene.
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             MostrarMenu(false, false);
+            salto.Play();
 
         }
         if (! gameOver && menuActivo)
@@ -77,7 +84,17 @@ public class GameControl : MonoBehaviour {
         score++;
         //...and adjust the score text.
         Puntuacion.text = "Score: " + score.ToString();
-    }
+        AudioSource audioScoreLocal = scoreSonido.GetComponent<AudioSource>(); ;
+        audioScoreLocal.Play();
+        switch (score) {
+		case limite1:
+			Btn_escena ();
+			break;
+		case limite2:
+			Btn_escena ();
+			break;
+		}
+	}
 
     public void BirdDied()
     {
